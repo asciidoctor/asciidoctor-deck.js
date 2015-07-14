@@ -1,0 +1,143 @@
+== deck.js Backend for Asciidoctor
+
+The https://github.com/asciidoctor/asciidoctor-deck.js[deck.js backend] is a collection of Haml templates for https://github.com/asciidoctor/asciidoctor[Asciidoctor] that transform an AsciiDoc document into HTML5 slides animated by http://lab.hakim.se/deck.js/[deck.js].
+
+//image:https://travis-ci.org/asciidoctor/asciidoctor-deck.js.svg?branch=master[Build Status,link=https://travis-ci.org/asciidoctor/asciidoctor-deck.js]
+
+== Usage Instructions
+
+. Ensure Asciidoctor, Haml and all their dependencies are installed:
+
+ $ gem install asciidoctor tilt thread_safe haml
+
+. Clone the asciidoctor-deck.js repository to get the templates necessary for converting AsciiDoc source to HTML slides:
+
+ $ git clone https://github.com/asciidoctor/asciidoctor-deck.js
+
+. Edit `CONTENT_FILE` ( *.adoc or *.ad or ...):
+  ** Slides & content per slide
+  ** (Optional) Set presentation options at top of `CONTENT_FILE`.
+     The options available & their values will depend on presentation library (some examples below).
+
+ :${Attribute}: ${Value}
+
+. Generate HTML from the Asciidoctor templates
+  .. Command Line:
+
+ $ asciidoctor -T templates/haml CONTENT_FILE
+
+  .. Build Script: use Ruby, JavaScript, Gradle or your favorite build tool/script with presentation options
+
+. Copy or clone presentation library (to output destination/branch)
+
+ $ git clone https://github.com/imakewebthings/deck.js
+
+TIP: If you are using https://pages.github.com/[GitHub Pages], plan ahead by keeping your source files on `master` branch and all output files on the `gh-pages` branch.
+
+=== Additional Notes
+
+* If you are planning to split your slides you also need to copy to `extensions` directory the `deck.split.js` file which can be downloaded from https://github.com/houqp/deck.split.js[GitHub]
+* If you want to use the fullscreen photo feature, you must create an `images` directory.
+
+== Source Examples
+
+// FIXME: incomplete
+
+Let's see some examples of `deckjs` backend features:
+
+----
+= Title Slide
+Presenter Name
+
+== Slide One
+
+Foo
+
+Bar
+
+World
+
+[canvas-image=./images/cosplay.jpg]
+== Slide Two
+
+[.canvas-caption, position=center-up]
+Hello World - Good Bye Cruel World
+----
+
+In the previous snippet, we are creating a slide titled “Slide One” with bullets and another one titled “Slide Two” with centered text (the default behavior of deck.js) with https://github.com/hakimel/deck.js#speaker-notes[speaker notes].
+
+Some things to consider:
+
+* The `canvas-image` attribute receives as a parameter the location of image we want to use and always must go before the section.
+* If you are planning to add a message over the image, you can do it as usually, but probably won't be read good, using       `position` attribute which positions text into the slide (bottom-left, top-left, bottom-right, top-right, center-up, center-down) and `canvas-caption` role will improve so much how text is rendered.
+
+----
+== Another Slide
+
+[%step]
+That's all.
+
+[%step]
+My Folks
+----
+
+In previous example we are creating one slide which instead of showing both paragraphs at the same time, will be presented each time you try to go to next slide.
+
+And the same can be applied to lists, images, quotes, code:
+
+----
+== Yet Another Slide
+
+[%step]
+* A
+* B
+* C
+----
+
+In this case, each bullet will appear to screen each time you try to go to next slide.
+
+WARNING: The original deckjs backend for AsciiDoc used the option name _incremental_ instead of _step_.
+We've changed it here to save you some typing :)
+
+== deck.js Options
+
+There are some attributes that can be set at the top of the document which they are specific of `deckjs` backend.
+
+[cols="1m,1,2"]
+|===
+|Attribute |Value(s) |Description
+
+|:deckjs_theme:
+|*none*, web-2.0, swiss, neon
+|where you set the deck.js theme.
+
+|:deckjs_transition:
+|*none*, horizontal-slide, vertical-slide, fade
+|where you set the kind of transition.
+
+|:customjs:
+|<javascript folder>
+|where you set a custom javascript file. It can be used as a deck.js custom configuration.
+
+|:customcss:
+|<css folder>
+|where you set a custom css file.
+
+|:navigation:
+| _N/A_
+|the presence of this attribute makes deck.js to render a back/next icons.
+
+|:status:
+| _N/A_
+|the presence of this attribute makes deck.js to render current slide and total number of slides.
+
+|:split:
+| _N/A_
+|with this attribute we are registering the `deck.split.js` file.
+|===
+
+NOTE: You can also specify a custom stylesheet using the `stylesheet` attribute, which can be used to customize AsciiDoc elements like section, paragraph, images, etc...
+
+== Stay Connected
+
+If you need any other feature supported by `deckjs` to be ported to this backend, any way to make it better or you find any bug, do not hesitate to open an issue.
