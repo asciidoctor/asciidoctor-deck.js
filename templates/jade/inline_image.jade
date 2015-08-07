@@ -1,4 +1,4 @@
-span(class=[node.$type(),node.$role()],style=node.$attr('float',''))
+span(class=[node.$type(), node.$role()],style=node.$attr('float', ''))
   if node.$type() == 'icon' && node.document.$attr('icons') == 'font'
     - style_class = ["icon-" + node.$target()]
     - style_class.push(node['$attr?']('size') ? 'icon-' + node.$attr('size'): '');

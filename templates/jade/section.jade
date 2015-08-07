@@ -1,5 +1,5 @@
-if node.$attr("canvas-image",false)
-  section(id=node.$id(),class=["slide","canvas-image",node.$role()],style="background-image: #{node.$attr('canvas-image','')}")
+if node.$attr("canvas-image", false)
+  section(id=node.$id(),class=["slide", "canvas-image", node.$role()],style="background-image: #{node.$attr('canvas-image', '')}")
     !{node.$content()}
 else
   section.slide(id=node.$id(),class=["#{node.$role()}"])

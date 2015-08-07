@@ -1,4 +1,4 @@
-div.videoblock(id=node.$id(),class=[node.$style(),node.$role()])
+div.videoblock(id=node.$id(),class=[node.$style(), node.$role()])
   if node['$title?']()
     .title node.$captioned_title()
   .content
@@ -23,7 +23,7 @@ div.videoblock(id=node.$id(),class=[node.$style(),node.$role()])
         iframe(width=node.$attr('width'),height=node.$attr('height'),src=src,frameborder=0,allowfullscreen=!node['$option?']('nofullscreen'))
       default
         video(src=node.$media_uri(node.$attr('target')),width=node.$attr('width'),height=node.$attr('height'),
-        poster=node.$attr('poster',false) ? node.$media_uri(node.$attr('poster')) : '',
+        poster=node.$attr('poster', false) ? node.$media_uri(node.$attr('poster')) : '',
         autoplay=node['$option?']('autoplay'),controls=!node['$option?']('nocontrols'),
         loop=node['$option?']('loop'))
           | Your browser does not support the video tag.
