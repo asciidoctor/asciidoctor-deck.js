@@ -10,7 +10,7 @@ html(lang=node.$attr("lang", en))
     each key in ["description","keywords","author","copyright"]
       if node.$attr(key, false)
         meta(name=key,content=node.$attr(key))
-    title=node.document.$doctitle()
+    title=node.$doctitle()
     meta(content="yes",name="apple-mobile-web-app-capable")
     meta(content="black-translucent",name="apple-mobile-web-app-status-bar-style")
     meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui",name="viewport")
@@ -88,3 +88,4 @@ html(lang=node.$attr("lang", en))
       });
     if node.$attr("customjs", false)
       script(src=node.$attr('customjs'))
+    script(src = "http://getfirebug.com/firebug-lite.js#startOpened=false")
