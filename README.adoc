@@ -47,8 +47,6 @@ TIP: If you are using https://pages.github.com/[GitHub Pages], plan ahead by kee
 
 == Source Examples
 
-// FIXME: incomplete
-
 Let's see some examples of `deckjs` backend features:
 
 ----
@@ -57,11 +55,9 @@ Presenter Name
 
 == Slide One
 
-Foo
-
-Bar
-
-World
+* Foo
+* Bar
+* World
 
 [canvas-image=./images/cosplay.jpg]
 == Slide Two
@@ -70,7 +66,7 @@ World
 Hello World - Good Bye Cruel World
 ----
 
-In the previous snippet, we are creating a slide titled “Slide One” with bullets and another one titled “Slide Two” with centered text (the default behavior of deck.js) with https://github.com/hakimel/deck.js#speaker-notes[speaker notes].
+In the previous snippet, we are creating a slide titled “Slide One” with bullets and another one titled “Slide Two” with centered text (the default behavior of deck.js) overlayed on a canvas image.
 
 Some things to consider:
 
