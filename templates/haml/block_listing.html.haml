@@ -15,7 +15,9 @@
         - pre_class = ['pygments','highlight']
       - when 'prettify'
         - pre_class = ['prettyprint']
-        - pre_class << 'linenums' if attr? :linenums
+        - nums = attr :linenums if attr? :linenums
+        - nums = attr :start if attr? :start
+        - pre_class << "linenums:#{nums}" if attr? :linenums
         - pre_class << language if language
         - pre_class << "language-#{language}" if language
         - code_class = nil
