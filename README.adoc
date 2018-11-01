@@ -1,8 +1,14 @@
-== deck.js Backend for Asciidoctor
+== deck.js Converter for Asciidoctor
+ifdef::env-github[]
+:warning-caption: :warning:
+endif::[]
+
+WARNING: deck.js is an outdated technology for creating HTML slides.
+Therefore, this converter is deprecated, no guarantee is made that it will work, and its use is discouraged.
+We encourage you to use either the https://github.com/asciidoctor/asciidoctor-reveal.js[Reveal.js converter] or the https://github.com/asciidoctor/asciidoctor-bespoke[Bespoke converter] to create your HTML slides from AsciiDoc instead.
+We're confident you will get a much better result with either of those two options.
 
 The https://github.com/asciidoctor/asciidoctor-deck.js[deck.js backend] is a collection of Haml templates for https://github.com/asciidoctor/asciidoctor[Asciidoctor] that transform an AsciiDoc document into HTML5 slides animated by http://imakewebthings.com/deck.js/[deck.js].
-
-//image:https://travis-ci.org/asciidoctor/asciidoctor-deck.js.svg?branch=master[Build Status,link=https://travis-ci.org/asciidoctor/asciidoctor-deck.js]
 
 == Usage Instructions
 
